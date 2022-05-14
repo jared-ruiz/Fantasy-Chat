@@ -4,11 +4,7 @@ const sequelize = require('../config/connection');
 class Post extends Model {
 
 }
-//model associations 
-User.hasMany(Post, {
-    //id column in user conencts to user_id in post
-    foreignKey: 'user_id'
-})
+
 // create fields/columns for Post model
 Post.init(
   {
