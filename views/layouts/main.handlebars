@@ -11,18 +11,32 @@
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">Fantasy Chat</a>
+        Fantasy Chat
       </h1>
+<nav>
+  
+  
+  {{#if loggedIn}}
+  <a href="/">Homepage</a>
+  <a href="/dashboard">Dashboard</a>
+  
+  <button id="logout" class="btn-no-style">logout</button>
+  {{else}}
+  <a href="/">Homepage</a>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/login">Login</a>
+  {{/if}}
+</nav>
     </header>
     <main>
       {{{ body }}}
-      
     </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
-  </div>
 
+  </div>
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
