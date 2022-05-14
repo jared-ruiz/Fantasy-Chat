@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Post, User} = require('../models/index.js');
 
 router.get('/', (req, res) => {
   res.render('homepage');
