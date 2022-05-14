@@ -1,5 +1,5 @@
 //import user model
-const { User } = require('../../models');
+const { User, Post } = require('../../models/index.js');
 const router = require('express').Router();
 
 //GET all users (/api/users)

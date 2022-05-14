@@ -8,4 +8,4 @@ const Post = require('./Post');
     foreignKey: 'user_id',
      onDelete: 'Cascade'
  })
-module.exports = { User };
+module.exports = { User, Post };
