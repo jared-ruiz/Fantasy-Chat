@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
     })
 })
 
+//POST create new comment
 router.post('/', (req, res) => {
     //nest this create request within a sessions condtion once we add express-sessionsto prevent no logged in users from commenting
     // ie: "if (req.session)" => rest of api code
@@ -26,7 +27,7 @@ router.post('/', (req, res) => {
     })
 })
 
-//DELETE single comment by id
+//DELETE comment by id
 router.delete('/:id', (req, res) => {
     Comment.destroy({
         where: {

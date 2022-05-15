@@ -86,6 +86,7 @@ router.post('/login', (req, res) => {
       return;
     }
 
+    //checkPassword method defined in User model
     const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
