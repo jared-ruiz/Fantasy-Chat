@@ -2,6 +2,8 @@ const sequelize = require('./config/connection');
 const express = require('express');
 const path = require('path');
 const routes = require('./controllers');
+//allows us to use the dotevn contents via process.env
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -12,20 +14,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //sessions + sequelize modules
-// const session = require('express-session');
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// const sess = {
-//   secret: 'test',
-//   cookies: {},
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize
-//   })
-// }
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+//secret will be located in the .env file. Create a variable that matches the reference below
+const sess = {
+  secret: process.env.session_secret,
+  cookies: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+}
 
-//use session
-// app.use(session(sess));
+// use session
+app.use(session(sess));
 
 //handlebars template engine code
 const exphbs = require('express-handlebars');
