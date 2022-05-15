@@ -1,42 +1,39 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fantasy Chat</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fantasy Chat</title>
+  </head>
 
-<body>
-  <div class="wrapper">
-    <header>
-      <h1>
-        Fantasy Chat
-      </h1>
-<nav>
-  
-  
-  {{#if loggedIn}}
-  <a href="/">Homepage</a>
-  <a href="/dashboard">Dashboard</a>
-  
-  <button id="logout" class="btn-no-style">logout</button>
-  {{else}}
-  <a href="/">Homepage</a>
-  <a href="/dashboard">Dashboard</a>
-  <a href="/login">Login</a>
-  {{/if}}
-</nav>
-    </header>
-    <main>
-      {{{ body }}}
-    </main>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>
+          Fantasy Chat
+        </h1>
+        <nav>
+          {{#if loggedIn}}
+            <a href="/">Homepage</a>
+            <a href="/dashboard">Dashboard</a>
 
-  </div>
-  
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
-</body>
+            <button id="logout" class="btn-no-style">logout</button>
+          {{else}}
+            <a href="/">Homepage</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/login">Login</a>
+          {{/if}}
+        </nav>
+      </header>
+      <main>
+        {{{body}}}
+      </main>
+
+    </div>
+
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+  </body>
 
 </html>
