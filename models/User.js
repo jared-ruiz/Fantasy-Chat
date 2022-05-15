@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 class User extends Model {}
 
@@ -38,10 +39,29 @@ User.init(
         }    
     },
     {
+        //these function will fire before creation of a user AND during an update on user data
+        hooks: {
+            //hashes password on creation
+            async beforeCreate(newUserData) {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            },
+            //hashes new password upon edit
+            async beforeUpdate(updatedUserData) {
+                updatedUserData = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+            }
+        },
+
+        //direct connection to db
         sequelize,
+        //no automatic creation of "createdAt/updatedAt" timestamps
         timestamps: false,
+        //no automatic pluralization of table names
         freezeTableName: true,
+        //use underscores instead of camelcasing
         underscored: true,
+        //lowercase model name within db
         modelName: 'user'
     }
 )
