@@ -1,40 +1,53 @@
 //import user model
-const { User, Post } = require('../../models/index.js');
+const { User, Post, Comment } = require('../../models/index.js');
 const router = require('express').Router();
 
 //GET all users (/api/users)
 router.get('/', (req, res) => {
-    User.findAll({
-        //prevent password from being returned by query
-        attributes: { exclude: ['password'] }
-    })
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+  User.findAll({
+    //prevent password from being returned by query
+    attributes: { exclude: ['password'] }
+  })
+  .then(dbUserData => res.json(dbUserData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 })
 
 //GET single user by id
 router.get('/:id', (req, res) => {
-    User.findOne({
-        attributes: { exclude: ['password'] },
-        where: {
-            id: req.params.id
-        },
-        
-    })
-    .then(dbUserData => {
-        if (!dbUserData) {
-            res.status(404).json({ message: 'No user found with that id' })
-            return;
+  User.findOne({
+    attributes: { exclude: ['password'] },
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: User,
+        attributes: ['id', 'title', 'post_url', 'created_at']
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'created_at'],
+        include: {
+          model: Post,
+          attributes: ['title']
         }
-        res.json(dbUserData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+      }
+    ]
+  })
+  .then(dbUserData => {
+    if (!dbUserData) {
+      res.status(404).json({ message: 'No user found with that id' })
+      return;
+    }
+    res.json(dbUserData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 })
 
 //POST new user
@@ -98,6 +111,7 @@ router.delete('/:id', (req, res) => {
         res.status(500).json(err);
     })
 })
+
 router.post('/login', (req, res) => {
     // expects {email: '', password: ''}
     User.findOne({
@@ -123,17 +137,19 @@ router.post('/login', (req, res) => {
         req.session.loggedIn = true;
     
         res.json({ user: dbUserData, message: 'You are now logged in!' });
-      });
     });
   });
+});
+
   router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    }
-    else {
-      res.status(404).end();
-    }
-  });
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
+
 module.exports = router;

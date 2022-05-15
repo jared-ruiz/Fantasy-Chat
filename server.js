@@ -11,6 +11,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//sessions + sequelize modules
+// const session = require('express-session');
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+// const sess = {
+//   secret: 'test',
+//   cookies: {},
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: sequelize
+//   })
+// }
+
+//use session
+// app.use(session(sess));
+
 //handlebars template engine code
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
