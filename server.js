@@ -19,7 +19,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 //secret will be located in the .env file. Create a variable that matches the reference below
 const sess = {
   secret: process.env.session_secret,
-  cookies: {},
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
