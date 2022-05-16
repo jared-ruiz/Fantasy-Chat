@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fantasy Chat</title>
+    <title>Fantasy Talk</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
@@ -11,25 +11,24 @@
     <div class="wrapper">
       <header>
         <h1>
-          Fantasy Chat
+          <a href="/">Fantasy Talk</a>
         </h1>
         <nav>
           {{#if loggedIn}}
-            <a href="/">Homepage</a>
-            <a href="/dashboard">Dashboard</a>
+            <a href="/dashboard">dashboard</a>
             <button id="logout" class="btn-no-style">logout</button>
           {{else}}
-            <a href="/">Homepage</a>
-            <a href="/login">Login</a>
+            <a href="/login">login</a>
           {{/if}}
         </nav>
       </header>
       <main>
         {{{body}}}
       </main>
-
+      <footer>
+        Natural 20 for perception!
+      </footer>
     </div>
-
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
     {{/if}}
