@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { Post, User } = require("../models/index.js");
+const { Post, User, Comment } = require("../models/index.js");
 const sequelize = require("../config/connection");
 
-router.get("/", (req, res) => {
-  res.render("homepage");
-});
+// router.get("/", (req, res) => {
+//   res.render("homepage");
+// });
 router.get("/", (req, res) => {
   console.log("======================");
   Post.findAll({
@@ -43,7 +43,6 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-
   res.render("login");
 });
 
