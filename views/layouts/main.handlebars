@@ -11,10 +11,11 @@
     <div class="wrapper">
       <header>
         <h1>
-          <a href="/">Fantasy Talk</a>
+          <div>Fantasy Talk</div>
         </h1>
         <nav>
           {{#if loggedIn}}
+            <a href="/">Homepage</a>
             <a href="/dashboard">dashboard</a>
             <button id="logout" class="btn-no-style">logout</button>
           {{else}}
