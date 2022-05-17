@@ -1,33 +1,33 @@
 <div class="columns pt-5">
 
-{{#if posts.length}}
-<section class="column pl-6 ml-6">
-  <div class="title">Your Games</div>
-  <ol class="tile is-vertical is-8">
-    {{#each posts as |post|}}
-    <li class="subtitle">
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="subtitle">Edit Game</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
-<section class="column">
-  <div class="title">Create A New Game</div>
-  <form class="field">
-    <div>
-      <label class="label" for="post-title">Title</label>
-      <div class="control">
-      <input type="text" id="post-title" name="post-title" />
+  {{#if posts.length}}
+  <section class="column pl-6 ml-6">
+    <div class="title">Your Games</div>
+    <ol class="tile is-vertical is-8">
+      {{#each posts as |post|}}
+      <li class="subtitle">
+        {{> post-info post}}
+        <a href="/dashboard/edit/{{post.id}}" class="subtitle">Edit Game</a>
+      </li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}
+  <section class="column">
+    <div class="title">Create A New Game</div>
+    <form class="field pl-6 new-post-form">
+      <div>
+        <label class="label" for="post-title">Title</label>
+        <div class="control">
+        <input type="text" id="post-title" name="post-title" />
+        </div>
       </div>
-    </div>
-    <div>
-      <label class="label" for="post-url">GM</label>
-      <input id="post-url" name="post-url" />
-    </div>
-    <button type="submit" class="button has-background-grey">Create</button>
-  </form>
-</section>
+      <div class="pb-2">
+        <label class="label" for="post-url">GM</label>
+        <input id="post-url" name="post-url" />
+      </div>
+      <button type="submit" class="button has-background-grey">Create</button>
+    </form>
+  </section>
 </div>
 <script src="/javascript/add-post.js"></script>
