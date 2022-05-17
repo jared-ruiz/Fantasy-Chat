@@ -3,14 +3,18 @@ var rollParam = document.getElementById('roll-input');
 const rollButton = document.getElementById('rollButton');
 const rollOutput = document.getElementById('rollOutput');
 
-function rollDie(){
-    var rollValue = rollParam.value
-    DiceRoll(rollValue);
-    console.log(roll.total);
-    var rollOutcome = roll.total
-    rollOutput.innerText(rollOutcome);
 
-}
+var dice = {
+    sides: rollParam.value,
+    roll: function () {
+      
+    }
+  }
+  
+  
+  rollButton.onclick = function() {
 
-rollButton.addEventListener("click", rollDie);
-
+        let sides = rollParam.value;
+        var randomNumber = Math.floor(Math.random() * sides) + 1;
+        rollOutput.innerText = randomNumber
+    }
