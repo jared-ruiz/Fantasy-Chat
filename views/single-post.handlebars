@@ -1,19 +1,26 @@
-<div class="columns">
-  <div class="column is-third is-offset-5">
-    {{> post-info post}}
-    {{#if loggedIn}}
-    <form class="label comment-form">
-      <div>
-        <textarea name="comment-body"></textarea>
-      </div>
-      <div>
-        <button type="submit" class="button has-background-grey">add comment</button>
-      </div>
-    </form>
-    {{/if}}
-    {{> comments post.comments}}
-    {{#if loggedIn}}
-    <script src="/javascript/comment.js"></script>
-    {{/if}}
+{{> post-info post}}
+{{#if loggedIn}}
+  <div> <form class="comment-form">
+    <div>
+      <textarea name="comment-body"></textarea>
+    </div>
+
+    <div>
+      <button type="submit">add comment</button>
+    </div>
+  </form>
+  <div id="rollCont">
+    <h2>Dice Roller</h2>
+    <h3 id="rollOutput"></h3>
+    <textarea id="roll-input"></textarea>
+    <button id="rollButton">Roll!</button>
   </div>
-</div>
+  </div>
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+  <script src="/javascript/comment.js"></script>
+  <script src="/javascript/roll.js"></script>
+{{/if}}
