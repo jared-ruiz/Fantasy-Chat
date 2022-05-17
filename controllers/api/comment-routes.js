@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     //nest this create request within a sessions condtion once we add express-sessionsto prevent no logged in users from commenting
     // ie: "if (req.session)" => rest of api code
+    debugger
     Comment.create({
         comment_text: req.body.comment_text,
         user_id: req.session.user_id,
@@ -23,6 +24,7 @@ router.post('/', (req, res) => {
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
         console.log(err);
+        debugger
         res.status(500).json(err);
     })
 })
