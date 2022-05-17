@@ -1,11 +1,15 @@
-<article class="post">
-  <div class="title">
-    <a href="/post/{{id}}" target="_blank">{{title}}</a>
+<article>
+  <div class="subtitle has-text-dark">
+    <a
+      href="/post/{{id}}"
+      target="_blank"
+      class="has-text-dark is-underlined"
+    >{{title}}</a>
     <span>({{format_url post_url}})</span>
   </div>
   <div class="meta">
     |
-    <a href="/post/{{id}}">{{comments.length}}
+    <a href="/post/{{id}}" class="has-text-dark">{{comments.length}}
       {{format_plural "comment" comments.length}}</a>
   </div>
 </article>
