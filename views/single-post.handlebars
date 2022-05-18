@@ -7,19 +7,19 @@
         <textarea class="textarea" name="comment-body"></textarea>
       </div>
       <div>
-        <button type="submit" class="button has-background-grey">add comment</button>
+        <button type="submit" class="button has-background-dark has-text-grey-lighter">Add Comment</button>
       </div>
     </form>
     <div id="rollCont">
-      <h2>Dice Roller</h2>
-      <h3 id="rollOutput"></h3>
+      <h2 class="has-text-grey-lighter">Dice Roller</h2>
+      <h3 id="rollOutput" class="has-text-grey-lighter"></h3>
       <textarea id="roll-input" placeholder="# of Dice"></textarea>
-      <h2>D</h2>
+      <h2 class="has-text-grey-lighter">D</h2>
       <textarea id="die-amount" placeholder="Sides of Die"></textarea>
     </div>
-    <button id="rollButton" class="button has-background-grey">Roll!</button>
+    <button id="rollButton" class="button has-background-dark has-text-grey-lighter">Roll!</button>
     </div>
-    <div class="column">
+    <div class="column has-background-success-dark">
     {{/if}}
     {{> comments post.comments}}
     {{#if loggedIn}}
