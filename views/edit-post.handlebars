@@ -1,7 +1,7 @@
 <article class="pl-6">
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
+  <h2 class="title">
+    Edit Game
   </h2>
   <form class="edit-post-form">
     <div>
@@ -12,8 +12,8 @@
       <a href="/post/{{post.id}}">{{post.comments.length}}
         {{format_plural "comment" post.comments.length}}</a>
     </div>
-    <button type="submit" class="button has-background-grey">Save Post</button>
-    <button type="button" class="delete-post-btn button-small has-background-grey">Delete post</button>
+    <button type="submit" class="button has-background-grey">Save Game</button>
+    <button type="button" class="delete-post-btn button has-background-grey">Delete Game</button>
   </form>
 </article>
 
@@ -23,7 +23,7 @@
     <textarea name="comment-body"></textarea>
   </div>
   <div>
-    <button type="submit" class="button-small has-background-grey">add comment</button>
+    <button type="submit" class="button has-background-grey">Add Comment</button>
   </div>
 </form>
 {{> comments post.comments}}
