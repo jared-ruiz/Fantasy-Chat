@@ -1,6 +1,6 @@
 {{> post-info post}}
 {{#if loggedIn}}
-  <form class="comment-form">
+  <div> <form class="comment-form">
     <div>
       <textarea name="comment-body"></textarea>
     </div>
@@ -9,10 +9,18 @@
       <button type="submit">add comment</button>
     </div>
   </form>
+  <div id="rollCont">
+    <h2>Dice Roller</h2>
+    <h3 id="rollOutput"></h3>
+    <textarea id="roll-input"></textarea>
+    <button id="rollButton">Roll!</button>
+  </div>
+  </div>
 {{/if}}
 
 {{> comments post.comments}}
 
 {{#if loggedIn}}
   <script src="/javascript/comment.js"></script>
+  <script src="/javascript/roll.js"></script>
 {{/if}}

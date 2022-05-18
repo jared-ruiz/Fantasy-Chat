@@ -1,12 +1,12 @@
-<div class="comments">
+<div>
   {{#each this}}
-    <section class="comment">
+    <section class="has-text-dark">
       <div class="meta">
         {{user.username}}
         on
         {{format_date created_at}}
       </div>
-      <div class="text">
+      <div class="has-text-dark">
         {{comment_text}}
       </div>
     </section>

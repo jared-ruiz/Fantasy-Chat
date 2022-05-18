@@ -5,32 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fantasy Talk</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
   </head>
 
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>
-          <div>Fantasy Talk</div>
-        </h1>
-        <nav>
-          {{#if loggedIn}}
-            <a href="/">Homepage</a>
-            <a href="/dashboard">dashboard</a>
-            <button id="logout" class="btn-no-style">logout</button>
-          {{else}}
-            <a href="/">Homepage</a>
-            <a href="/login">login</a>
-          {{/if}}
-        </nav>
-      </header>
-      <main>
-        {{{body}}}
-      </main>
-      <footer>
+  <body class="columns is-flex-direction-column is-fullheight-100vh">
+    <header class="navbar is-dark pt-4 pb-6 px-6">
+      <h1>
+        <div class="navbar-brand is-size-3">Fantasy Talk</div>
+      </h1>
+      <nav class="navbar-end">
+        {{#if loggedIn}}
+          <a
+            href="/"
+            class="button navbar-item has-background-dark"
+          >Homepage</a>
+          <a
+            href="/dashboard"
+            class="button navbar-item has-background-dark"
+          >dashboard</a>
+          <button
+            id="logout"
+            class="button navbar-item has-background-dark"
+          >logout</button>
+        {{else}}
+          <a
+            href="/"
+            class="button navbar-item has-background-dark"
+          >Homepage</a>
+          <a
+            href="/login"
+            class="button navbar-item has-background-dark"
+          >login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="column has-background-success-dark">
+      {{{body}}}
+    </main>
+    <footer class="column is-narrow footer has-background-dark">
+      <div class="has-text-centered">
         Natural 20 for perception!
-      </footer>
-    </div>
+      </div>
+    </footer>
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
     {{/if}}
