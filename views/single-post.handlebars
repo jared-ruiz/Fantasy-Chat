@@ -1,29 +1,27 @@
-{{> post-info post}}
-{{#if loggedIn}}
-  <div> <form class="comment-form">
-    <div>
-      <textarea name="comment-body"></textarea>
-    </div>
+<div class="pl-6"> 
+  {{> post-info post}}
+  {{#if loggedIn}}
+    <form class="comment-form">
+      <div>
+        <textarea name="comment-body"></textarea>
+      </div>
 
-    <div>
-      <button type="submit">add comment</button>
+      <div>
+        <button type="submit" class="button-small has-background-grey">add comment</button>
+      </div>
+    </form>
+    <div id="rollCont">
+      <h2>Dice Roller</h2>
+      <h3 id="rollOutput"></h3>
+      <textarea id="die-amount"></textarea>
+      <h2>D</h2>
+      <textarea id="roll-input"></textarea>
     </div>
-  </form>
-  <div id="rollCont" class="column">
-    <h2>Dice Roller</h2>
-    <h3 id="rollOutput"></h3>
-    <textarea id="die-amount"></textarea>
-    <h2>D</h2>
-    <textarea id="roll-input"></textarea>
-    </div>
-    <button id="rollButton" class="button">Roll!</button>
-    
-  </div>
-{{/if}}
-
-{{> comments post.comments}}
-
-{{#if loggedIn}}
+    <button id="rollButton" class="button-small has-background-grey">Roll!</button>
+    {{/if}}
+    {{> comments post.comments}}
+    {{#if loggedIn}}
   <script src="/javascript/comment.js"></script>
   <script src="/javascript/roll.js"></script>
-{{/if}}
+  {{/if}}
+</div>
