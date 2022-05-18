@@ -1,32 +1,33 @@
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
+<article class="pl-6">
+  <a href="/dashboard" class="has-text-grey-lighter"> &larr; Back to dashboard</a>
+  <h2 class="subtitle has-text-grey-lighter">
+    Edit Game
   </h2>
-  <form class="edit-post-form">
+  <form class="edit-post-form has-text-grey-lighter">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" />
       <span>({{format_url post.post_url}})</span>
     </div>
-    <div>
-      <a href="/post/{{post.id}}">{{post.comments.length}}
+    <div class="has-text-grey-lighter">
+      <a href="/post/{{post.id}}" class="has-text-grey-lighter"">{{post.comments.length}}
         {{format_plural "comment" post.comments.length}}</a>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit" class="button has-background-dark has-text-grey-lighter">Save Game</button>
+    <button type="button" class="delete-post-btn button has-background-dark has-text-grey-lighter">Delete Game</button>
   </form>
 </article>
 
+<div class="pl-6">
 <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
   </div>
-
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit" class="button has-background-dark has-text-grey-lighter">Add Comment</button>
   </div>
 </form>
 {{> comments post.comments}}
+</div>
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

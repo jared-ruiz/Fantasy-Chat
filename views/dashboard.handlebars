@@ -1,32 +1,31 @@
 <div class="columns pt-5">
-
   {{#if posts.length}}
   <section class="column pl-6 ml-6">
-    <div class="title">Your Games</div>
+    <div class="title has-text-grey-lighter is-underlined">Your Games</div>
     <ol class="tile is-vertical is-8">
       {{#each posts as |post|}}
       <li class="subtitle">
         {{> post-info post}}
-        <a href="/dashboard/edit/{{post.id}}" class="subtitle">Edit Game</a>
+        <a href="/dashboard/edit/{{post.id}}" class="subtitle has-text-grey-lighter">Edit Game</a>
       </li>
       {{/each}}
     </ol>
   </section>
   {{/if}}
   <section class="column">
-    <div class="title">Create A New Game</div>
+    <div class="title has-text-grey-lighter is-underlined">Create A New Game</div>
     <form class="field pl-6 new-post-form">
       <div>
-        <label class="label" for="post-title">Title</label>
+        <label class="label has-text-grey-lighter" for="post-title">Title</label>
         <div class="control">
         <input type="text" id="post-title" name="post-title" />
         </div>
       </div>
       <div class="pb-2">
-        <label class="label" for="post-url">GM</label>
+        <label class="label has-text-grey-lighter" for="post-url">GM</label>
         <input id="post-url" name="post-url" />
       </div>
-      <button type="submit" class="button has-background-grey">Create</button>
+      <button type="submit" class="button has-background-dark has-text-grey-lighter">Create</button>
     </form>
   </section>
 </div>
