@@ -1,11 +1,11 @@
-<div class="pl-6"> 
+<div class="pl-6 columns"> 
+  <div class="column pl-6 is-one-third">
   {{> post-info post}}
   {{#if loggedIn}}
     <form class="comment-form">
       <div>
-        <textarea name="comment-body"></textarea>
+        <textarea class="textarea" name="comment-body"></textarea>
       </div>
-
       <div>
         <button type="submit" class="button has-background-grey">add comment</button>
       </div>
@@ -13,15 +13,18 @@
     <div id="rollCont">
       <h2>Dice Roller</h2>
       <h3 id="rollOutput"></h3>
-      <textarea id="die-amount"></textarea>
+      <textarea id="roll-input" placeholder="# of Dice"></textarea>
       <h2>D</h2>
-      <textarea id="roll-input"></textarea>
+      <textarea id="die-amount" placeholder="Sides of Die"></textarea>
     </div>
     <button id="rollButton" class="button has-background-grey">Roll!</button>
+    </div>
+    <div class="column">
     {{/if}}
     {{> comments post.comments}}
     {{#if loggedIn}}
   <script src="/javascript/comment.js"></script>
   <script src="/javascript/roll.js"></script>
   {{/if}}
+  </div>
 </div>
